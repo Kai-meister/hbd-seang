@@ -1,0 +1,737 @@
+<title>Happy Birthday, Seang 🎂</title>
+<style>
+  :root {
+    --paper: #fdfdfb;
+    --ink: #1c2130;
+    --ink-soft: #4a5063;
+    --rule: #c9c5b8;
+    --pink: #e8547c;
+    --gold: #f5a623;
+    --teal: #2a9d8f;
+    --stamp: #c0392b;
+    --cake-top: #f9dfe7;
+    --cake-mid: #f3b8c9;
+    --cake-base: #b06a4a;
+    --plate: #dfe3ea;
+    --kraft: #e6cfa4;
+    --kraft-flap: #d9bc8c;
+    --kraft-deep: #c9a970;
+    --addr-ink: #4a3a26;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #15181f;
+      --ink: #e8e6df;
+      --ink-soft: #a7a89f;
+      --rule: #3c4150;
+      --pink: #f0698d;
+      --gold: #ffb84d;
+      --teal: #4cc4b5;
+      --stamp: #e05a48;
+      --plate: #3a4050;
+      --kraft: #7a6544;
+      --kraft-flap: #6b5739;
+      --kraft-deep: #57462d;
+      --addr-ink: #f0e4cc;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #fdfdfb;
+    --ink: #1c2130;
+    --ink-soft: #4a5063;
+    --rule: #c9c5b8;
+    --pink: #e8547c;
+    --gold: #f5a623;
+    --teal: #2a9d8f;
+    --stamp: #c0392b;
+    --plate: #dfe3ea;
+    --kraft: #e6cfa4;
+    --kraft-flap: #d9bc8c;
+    --kraft-deep: #c9a970;
+    --addr-ink: #4a3a26;
+  }
+  :root[data-theme="dark"] {
+    --paper: #15181f;
+    --ink: #e8e6df;
+    --ink-soft: #a7a89f;
+    --rule: #3c4150;
+    --pink: #f0698d;
+    --gold: #ffb84d;
+    --teal: #4cc4b5;
+    --stamp: #e05a48;
+    --plate: #3a4050;
+    --kraft: #7a6544;
+    --kraft-flap: #6b5739;
+    --kraft-deep: #57462d;
+    --addr-ink: #f0e4cc;
+  }
+
+  html { background: var(--paper); }
+  body {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    color: var(--ink);
+    line-height: 1.55;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  #confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+  }
+  .page {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 5rem;
+  }
+
+  .label {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Title page ---------- */
+  .titlepage { text-align: center; }
+  .titlepage .label { margin-bottom: 0.4rem; }
+  h1 {
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 1.6rem 0 0.6rem;
+    text-wrap: balance;
+  }
+  h1 .name { color: var(--pink); font-style: italic; }
+  .subtitle {
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 0 0 2.2rem;
+    font-size: 1.05rem;
+  }
+  .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .meta strong { color: var(--ink); font-weight: 700; }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.8rem 0;
+  }
+
+  /* ---------- Sections ---------- */
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 0 0 0.8rem;
+  }
+  h2 .no { color: var(--teal); margin-right: 0.5em; }
+  p { margin: 0 0 1rem; }
+  .keywords { font-size: 0.92rem; color: var(--ink-soft); }
+  .keywords em { color: var(--ink); }
+
+  /* ---------- Findings table ---------- */
+  .findings { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.5rem 0.75rem 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  th {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  td.stat { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td .ok { color: var(--teal); font-weight: 700; }
+
+  /* ---------- Figure 1: the cake ---------- */
+  figure {
+    margin: 2.2rem 0 0;
+    text-align: center;
+  }
+  .cake-stage {
+    position: relative;
+    display: inline-block;
+    padding: 2.5rem 2rem 0;
+    cursor: pointer;
+    border: none;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .cake-stage:focus-visible {
+    outline: 2px dashed var(--pink);
+    outline-offset: 8px;
+    border-radius: 12px;
+  }
+  .cake {
+    position: relative;
+    width: 220px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  .plate {
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 260px; height: 16px;
+    background: var(--plate);
+    border-radius: 50%;
+  }
+  .layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px 10px 6px 6px;
+  }
+  .layer.base { bottom: 8px; width: 200px; height: 62px; background: var(--cake-base); }
+  .layer.mid  { bottom: 66px; width: 168px; height: 46px; background: var(--cake-mid); }
+  .layer.top  { bottom: 108px; width: 132px; height: 38px; background: var(--cake-top); }
+  .drip {
+    position: absolute;
+    top: -2px; left: 0; right: 0; height: 16px;
+    background:
+      radial-gradient(circle at 12% 100%, var(--cake-top) 7px, transparent 8px),
+      radial-gradient(circle at 34% 100%, var(--cake-top) 9px, transparent 10px),
+      radial-gradient(circle at 58% 100%, var(--cake-top) 7px, transparent 8px),
+      radial-gradient(circle at 82% 100%, var(--cake-top) 9px, transparent 10px);
+  }
+  .layer.mid .drip { filter: brightness(1.06); }
+
+  .candle {
+    position: absolute;
+    bottom: 146px;
+    width: 10px; height: 34px;
+    border-radius: 3px;
+    background: repeating-linear-gradient(
+      -45deg, var(--pink) 0 6px, #fff 6px 12px
+    );
+  }
+  .candle.c1 { left: 66px; }
+  .candle.c2 { left: 105px; bottom: 152px; }
+  .candle.c3 { left: 144px; }
+  .flame {
+    position: absolute;
+    top: -18px; left: 50%;
+    width: 12px; height: 16px;
+    transform: translateX(-50%);
+    background: var(--gold);
+    border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+    box-shadow: 0 0 14px 3px rgba(245, 166, 35, 0.55);
+    transform-origin: 50% 100%;
+    animation: flicker 0.5s ease-in-out infinite alternate;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+  .flame::after {
+    content: "";
+    position: absolute;
+    inset: 5px 3px 2px;
+    background: var(--paper);
+    opacity: 0.55;
+    border-radius: inherit;
+  }
+  .candle.c2 .flame { animation-delay: 0.17s; }
+  .candle.c3 .flame { animation-delay: 0.31s; }
+  @keyframes flicker {
+    from { transform: translateX(-50%) scale(1) rotate(-3deg); }
+    to   { transform: translateX(-50%) scale(1.15) rotate(3deg); }
+  }
+  .blown .flame {
+    animation: none;
+    transform: translateX(-50%) translateY(-14px) scale(0.1);
+    opacity: 0;
+  }
+  .smoke {
+    position: absolute;
+    top: -30px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    color: var(--ink-soft);
+    opacity: 0;
+  }
+  .blown .smoke { animation: rise 1.6s ease-out forwards; }
+  @keyframes rise {
+    0%   { opacity: 0; transform: translate(-50%, 0); }
+    25%  { opacity: 0.8; }
+    100% { opacity: 0; transform: translate(-50%, -26px); }
+  }
+
+  figcaption {
+    margin-top: 1.1rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+  figcaption strong { color: var(--ink); }
+  .hint {
+    display: inline-block;
+    margin-top: 0.3rem;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pink);
+  }
+
+  /* ---------- Big reveal ---------- */
+  .wish {
+    text-align: center;
+    margin: 2.4rem 0 0;
+    min-height: 4.6rem;
+  }
+  .wish .big {
+    font-size: clamp(1.6rem, 5.5vw, 2.3rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--pink);
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 1.4, 0.4, 1);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .wish.shown .big { opacity: 1; transform: none; }
+
+  /* ---------- Verdict stamp ---------- */
+  .verdict {
+    display: flex;
+    justify-content: center;
+    margin: 2.4rem 0 0;
+  }
+  .stamp {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stamp);
+    border: 3px double var(--stamp);
+    border-radius: 6px;
+    padding: 0.7rem 1.4rem;
+    transform: rotate(-3.5deg);
+    opacity: 0.9;
+    text-align: center;
+  }
+  .stamp small {
+    display: block;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    margin-top: 0.3rem;
+    font-weight: 700;
+  }
+
+  footer {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* ---------- Envelope intro ---------- */
+  .mail-scene {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2rem;
+    background: var(--paper);
+  }
+  .mail-scene.gone {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+  }
+  .envelope {
+    position: relative;
+    width: min(380px, 88vw);
+    aspect-ratio: 8 / 5;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    perspective: 1000px;
+    -webkit-tap-highlight-color: transparent;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.18));
+  }
+  .envelope:focus-visible {
+    outline: 2px dashed var(--pink);
+    outline-offset: 10px;
+    border-radius: 12px;
+  }
+  .envelope > span { display: block; }
+  .env-back {
+    position: absolute;
+    inset: 0;
+    background: var(--kraft-deep);
+    border-radius: 10px;
+  }
+  .env-letter {
+    position: absolute;
+    left: 7%;
+    right: 7%;
+    top: 9%;
+    bottom: 9%;
+    z-index: 2;
+    background: #fffdf6;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1) 0.45s;
+  }
+  .env-letter .peek-title {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #e8547c;
+  }
+  .env-letter .peek-sub {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #4a5063;
+  }
+  .open .env-letter { transform: translateY(-80%); }
+  .env-pocket {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: var(--kraft);
+    clip-path: polygon(0 6%, 50% 54%, 100% 6%, 100% 100%, 0 100%);
+    border-radius: 10px;
+  }
+  .env-addr {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 58%;
+    z-index: 4;
+    text-align: center;
+    font-family: "Snell Roundhand", "Savoye LET", "Brush Script MT", cursive;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    color: var(--addr-ink);
+    pointer-events: none;
+  }
+  .env-addr small {
+    display: block;
+    font-size: 1rem;
+    opacity: 0.85;
+  }
+  .env-stamp-corner {
+    position: absolute;
+    right: 5%;
+    bottom: 9%;
+    z-index: 4;
+    width: 46px;
+    height: 54px;
+    background: #fffdf6;
+    border: 2px dashed var(--kraft-deep);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    transform: rotate(4deg);
+    pointer-events: none;
+  }
+  .env-postmark {
+    position: absolute;
+    right: 15%;
+    bottom: 20%;
+    z-index: 5;
+    width: 66px;
+    height: 66px;
+    border: 2px solid var(--addr-ink);
+    border-radius: 50%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--addr-ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: rotate(-12deg);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .env-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 54%;
+    z-index: 6;
+    background: var(--kraft-flap);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    border-radius: 10px 10px 0 0;
+    transform-origin: top center;
+    transition: transform 0.6s ease, z-index 0s 0.3s;
+  }
+  .open .env-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+  }
+  .env-seal {
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    z-index: 7;
+    width: 56px;
+    height: 56px;
+    margin: -28px 0 0 -28px;
+    border-radius: 50%;
+    background: var(--stamp);
+    color: #fff;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.25), 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+  .open .env-seal {
+    transform: scale(0);
+    opacity: 0;
+  }
+  .mail-hint { text-align: center; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flame { animation: none; }
+    .flame, .wish .big { transition: none; }
+    .blown .smoke { animation: none; opacity: 0.6; }
+    .env-letter, .env-flap, .env-seal, .mail-scene.gone { transition: none; }
+  }
+</style>
+
+<canvas id="confetti"></canvas>
+
+<div class="mail-scene" id="mailScene">
+  <button class="envelope" id="envelope" aria-label="Open Seang's birthday mail">
+    <span class="env-back"></span>
+    <span class="env-letter" aria-hidden="true">
+      <span class="peek-title">Happy 22nd! 🎂</span>
+      <span class="peek-sub">Open me</span>
+    </span>
+    <span class="env-pocket"></span>
+    <span class="env-addr" aria-hidden="true">To: Seang<small>Dept. of Thesis Survival · Year 4, S2</small></span>
+    <span class="env-stamp-corner" aria-hidden="true">🎂</span>
+    <span class="env-postmark" aria-hidden="true">Priority<br>08 Jul<br>2026</span>
+    <span class="env-flap"></span>
+    <span class="env-seal" aria-hidden="true">22</span>
+  </button>
+  <p class="label mail-hint">You've got mail · tap the envelope to open</p>
+</div>
+
+<main class="page">
+  <header class="titlepage">
+    <div class="label">Year 4 · Semester 2 · Department of Celebratory Sciences</div>
+    <h1>On the 22nd Annual Occurrence of a Birthday in a Thesis Teammate:<br>a case study of <span class="name">Seang</span></h1>
+    <p class="subtitle">Submitted in partial fulfilment of the requirements for the degree of Best Thesis Teammate</p>
+    <div class="meta">
+      <span>Author: <strong>Your thesis teammate</strong></span>
+      <span>Defended: <strong>8 July 2026</strong> &nbsp;·&nbsp; Verdict: <strong>pass, with distinction</strong></span>
+    </div>
+  </header>
+
+  <hr>
+
+  <section>
+    <h2><span class="no">1.</span>Abstract</h2>
+    <p>This study investigates the recurring phenomenon whereby Seang (b.&nbsp;8&nbsp;July&nbsp;2004) becomes exactly one year older per annum, reaching a record value of 22 as of the date of submission. Data was collected over one full academic year of shared deadlines, late-night writing sessions, and group-chat panic. Results show a statistically significant increase in awesomeness (see Table&nbsp;1) and a projected sharp rise in cake consumption within the next 24 hours. We conclude, with high confidence: <em>Happy Birthday, Seang.</em></p>
+    <p class="keywords"><em>Keywords:</em> birthday, cake, thesis survival, deadlines outlived, one more year, no revisions required</p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2><span class="no">2.</span>Findings</h2>
+    <div class="findings">
+      <table>
+        <thead>
+          <tr><th>Hypothesis</th><th>Result</th><th>Significance</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Seang turns 22 today (8 July 2026)</td>
+            <td><span class="ok">Confirmed</span></td>
+            <td class="stat">p &lt; 0.001</td>
+          </tr>
+          <tr>
+            <td>The thesis would have been way harder without them</td>
+            <td><span class="ok">Confirmed</span></td>
+            <td class="stat">p &lt; 0.001</td>
+          </tr>
+          <tr>
+            <td>They deserve cake immediately</td>
+            <td><span class="ok">Strongly confirmed</span></td>
+            <td class="stat">p ≈ 0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2><span class="no">3.</span>Experimental Apparatus</h2>
+
+    <figure>
+      <button class="cake-stage" id="cakeBtn" aria-label="Blow out the candles">
+        <div class="cake">
+          <div class="plate"></div>
+          <div class="layer base"><div class="drip"></div></div>
+          <div class="layer mid"><div class="drip"></div></div>
+          <div class="layer top"><div class="drip"></div></div>
+          <div class="candle c1"><div class="flame"></div><div class="smoke">〰</div></div>
+          <div class="candle c2"><div class="flame"></div><div class="smoke">〰</div></div>
+          <div class="candle c3"><div class="flame"></div><div class="smoke">〰</div></div>
+        </div>
+      </button>
+      <figcaption>
+        <strong>Fig. 1</strong> — Experimental apparatus (three-tier; n&nbsp;=&nbsp;22 candles, three shown for legibility).
+        <br><span class="hint" id="hint">Tap the cake to blow out the candles</span>
+      </figcaption>
+    </figure>
+
+    <div class="wish" id="wish" aria-live="polite">
+      <p class="big">Happy 22nd Birthday, Seang! 🎉</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2><span class="no">4.</span>Committee Decision</h2>
+    <div class="verdict">
+      <div class="stamp">Accepted<small>no revisions required</small></div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2><span class="no">5.</span>Acknowledgments</h2>
+    <p>The author gratefully acknowledges Seang for surviving Year&nbsp;4, Semester&nbsp;2 alongside them — for every shared deadline, every "we'll fix it in the next draft," and every moment of keeping the project (and the author) on track. May the coming year bring fewer revisions and more celebrations.</p>
+  </section>
+
+  <footer>This document was peer-reviewed by one (1) very grateful teammate. 🎂</footer>
+</main>
+
+<script>
+  (function () {
+    var canvas = document.getElementById("confetti");
+    var ctx = canvas.getContext("2d");
+    var pieces = [];
+    var running = false;
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var colors = ["#e8547c", "#f5a623", "#2a9d8f", "#5b8def", "#f3b8c9"];
+
+    function resize() {
+      canvas.width = window.innerWidth * devicePixelRatio;
+      canvas.height = window.innerHeight * devicePixelRatio;
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    function burst() {
+      var w = window.innerWidth;
+      for (var i = 0; i < 140; i++) {
+        pieces.push({
+          x: Math.random() * w,
+          y: -20 - Math.random() * window.innerHeight * 0.4,
+          w: 6 + Math.random() * 6,
+          h: 8 + Math.random() * 8,
+          vy: 2 + Math.random() * 3,
+          vx: -1.2 + Math.random() * 2.4,
+          rot: Math.random() * Math.PI,
+          vr: -0.12 + Math.random() * 0.24,
+          color: colors[i % colors.length]
+        });
+      }
+      if (!running) { running = true; requestAnimationFrame(tick); }
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      pieces = pieces.filter(function (p) { return p.y < window.innerHeight + 30; });
+      pieces.forEach(function (p) {
+        p.y += p.vy;
+        p.x += p.vx + Math.sin(p.y / 40);
+        p.rot += p.vr;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+      if (pieces.length) { requestAnimationFrame(tick); }
+      else { running = false; ctx.clearRect(0, 0, window.innerWidth, window.innerHeight); }
+    }
+
+    var btn = document.getElementById("cakeBtn");
+    var wish = document.getElementById("wish");
+    var hint = document.getElementById("hint");
+    var blown = false;
+
+    btn.addEventListener("click", function () {
+      if (!blown) {
+        blown = true;
+        btn.classList.add("blown");
+        wish.classList.add("shown");
+        hint.textContent = "Wish granted · tap again for more confetti";
+      }
+      if (!reduced) burst();
+    });
+
+    var scene = document.getElementById("mailScene");
+    var envelope = document.getElementById("envelope");
+    document.documentElement.style.overflow = "hidden";
+    envelope.addEventListener("click", function () {
+      if (scene.classList.contains("open")) return;
+      scene.classList.add("open");
+      var wait = reduced ? 0 : 1500;
+      setTimeout(function () {
+        scene.classList.add("gone");
+        document.documentElement.style.overflow = "";
+        if (!reduced) burst();
+      }, wait);
+    });
+  })();
+</script>
